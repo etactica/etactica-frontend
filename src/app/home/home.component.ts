@@ -21,6 +21,10 @@ import { XLarge } from './x-large';
 export class HomeComponent {
   // Set our default values
   localState = { value: '' };
+  vaadintest = ['testerino'];
+  vaadinvalue = 'testerino';
+  vaadinlabel = 'label';
+
   // TypeScript public modifiers
   constructor(public appState: AppState, public title: Title) {
 

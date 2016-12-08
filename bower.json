@@ -1,0 +1,28 @@
+{
+  "name": "etactica-frontend",
+  "description": "The frontend for eTactica",
+  "main": "",
+  "authors": [
+    "eTactica team"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular2",
+    "webpack",
+    "typescript"
+  ],
+  "homepage": "https://github.com/remakeelectric/etactica-frontend",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vaadin-charts": "^3.2.0",
+    "paper-elements": "^1.0.7",
+    "vaadin-combo-box": "^1.1.5"
+  }
+}

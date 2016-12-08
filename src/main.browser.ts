@@ -13,7 +13,8 @@ import { AppModule } from './app';
 /*
  * Bootstrap our Angular app with a top level NgModule
  */
-export function main(): Promise<any> {
+/*export function main(): Promise<any> {
+  console.log("running main");
   return platformBrowserDynamic()
     .bootstrapModule(AppModule)
     .then(decorateModuleRef)
@@ -22,4 +23,6 @@ export function main(): Promise<any> {
 
 // needed for hmr
 // in prod this is replace for document ready
-bootloader(main);
+bootloader(main);*/
+
+platformBrowserDynamic().bootstrapModule(AppModule).then(decorateModuleRef).catch(err => console.error(err));

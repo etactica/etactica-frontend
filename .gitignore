@@ -53,6 +53,9 @@ npm-debug.log
 /dist/**
 /.awcache
 .webpack.json
+.happypack/
+stats.json
+src/assets/bower_components
 
 # Doc #
 /doc/

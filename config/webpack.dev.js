@@ -5,6 +5,7 @@
 const helpers = require('./helpers');
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 const commonConfig = require('./webpack.common.js'); // the settings that are common to prod and dev
+const HappyPack = require('happypack');
 
 /**
  * Webpack Plugins
@@ -26,6 +27,9 @@ const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
   ENV: ENV,
   HMR: HMR
 });
+
+
+
 
 /**
  * Webpack configuration
@@ -84,6 +88,11 @@ module.exports = function (options) {
       libraryTarget: 'var',
     },
 
+    loader: {
+      test: /.js$/,
+      loaders: [ 'happypack/loader' ]
+    },
+
     plugins: [
 
       /**
@@ -126,6 +135,13 @@ module.exports = function (options) {
         }
       }),
 
+      new HappyPack({
+        // loaders is the only required parameter:
+        loaders: [ 'babel-loader' ],
+        threads: 4
+
+        // customize as needed, see Configuration below
+      })
     ],
 
     /**

@@ -65,7 +65,6 @@ export class AppComponent {
 
   constructor(
     public appState: AppState) {
-
   }
 
   ngOnInit() {
