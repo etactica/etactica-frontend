@@ -19,9 +19,31 @@ import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
+import ApolloClient, { createNetworkInterface } from 'apollo-client';
+import { ApolloModule } from 'angular2-apollo';
+
+const networkInterface = createNetworkInterface('https://s4ndp6dt4k.execute-api.eu-west-1.amazonaws.com/dev/graphql');
 
 //Polymer components
 import { PolymerElement } from '@vaadin/angular2-polymer';
+import {PrufaComponent} from './prufa/prufa.component';
+
+// apply JWT to header
+networkInterface.use([{
+  applyMiddleware(req, next) {
+    req.options.headers = req.options.headers || {};  // Create the header object if needed.
+    // get the authentication token from local storage if it exists
+    let token = localStorage.getItem('etactica-token');
+    req.options.headers['authorization'] = token !== undefined
+      ? 'Bearer ' + token
+      : null;
+    next();
+  }
+}]);
+
+const client = new ApolloClient({
+  networkInterface: networkInterface,
+});
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -47,6 +69,7 @@ type StoreType = {
     HomeComponent,
     NoContentComponent,
     XLarge,
+    PrufaComponent,
     PolymerElement('vaadin-line-chart'),
     PolymerElement('vaadin-combo-box')
   ],
@@ -54,6 +77,7 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    ApolloModule.withClient(client),
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
@@ -100,6 +124,4 @@ export class AppModule {
     store.disposeOldHosts();
     delete store.disposeOldHosts;
   }
-
 }
-
