@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLarge } from './x-large';
+import {Auth} from "../auth.service";
 
 @Component({
   // The selector is what angular internally uses
@@ -11,7 +12,8 @@ import { XLarge } from './x-large';
   selector: 'home',  // <home></home>
   // We need to tell Angular's Dependency Injection which providers are in our app.
   providers: [
-    Title
+    Title,
+    Auth
   ],
   // Our list of styles in our component. We may add more to compose many styles together
   styleUrls: [ './home.component.css' ],
@@ -26,7 +28,7 @@ export class HomeComponent {
   vaadinlabel = 'label';
 
   // TypeScript public modifiers
-  constructor(public appState: AppState, public title: Title) {
+  constructor(public appState: AppState, public title: Title, private auth: Auth) {
 
   }
 

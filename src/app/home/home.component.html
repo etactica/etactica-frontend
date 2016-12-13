@@ -7,6 +7,18 @@
 
   <hr>
 
+  <div *ngIf="auth.authenticated()">
+    <p>You are logged in {{auth.name()}} <img *ngIf="auth.authenticated()" src="{{auth.picture()}}" /></p>
+    <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
+  </div>
+
+  <div *ngIf="!auth.authenticated()">
+    <p>You are not logged in, please click 'Log in' button to login</p>
+    <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+  </div>
+
+  <hr>
+
   <div>
     For hot module reloading run
     <pre>npm run start:hmr</pre>
