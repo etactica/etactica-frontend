@@ -13,6 +13,8 @@ import '@angular/common';
 import '@angular/forms';
 import '@angular/http';
 import '@angular/router';
+import 'auth0-lock/lib/browser.js';
+import 'assets/bower_components/webcomponentsjs/webcomponents-lite.min.js';
 
 // AngularClass
 import '@angularclass/hmr';
