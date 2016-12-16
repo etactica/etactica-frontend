@@ -162,6 +162,11 @@ module.exports = function (options) {
         prettyPrint: true
       }),
 
+      new webpack.PrefetchPlugin('/~/', 'lodash/_hashGet.js'),
+      new webpack.PrefetchPlugin('/~/', 'lodash/_baseKeysIn.js'),
+      new webpack.PrefetchPlugin('/~/', 'lodash-es/_root.js'),
+      new webpack.PrefetchPlugin('/~/', 'fbjs/lib/createArrayFromMixed.js'),
+
       /*
        * Plugin: ForkCheckerPlugin
        * Description: Do type checking in a separate process, so webpack don't need to wait.
