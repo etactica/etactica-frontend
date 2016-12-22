@@ -21,6 +21,10 @@ import '@angularclass/hmr';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
+// Auth0
+import 'auth0-lock/lib/browser.js';
+import 'auth0-js/index.js';
+
 if ('production' === ENV) {
   // Production
 
