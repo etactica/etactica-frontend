@@ -58,7 +58,7 @@ module.exports = function (options) {
 
       'polyfills': './src/polyfills.browser.ts',
       'vendor':    './src/vendor.browser.ts',
-      'main':      './src/main.browser.ts'
+      'main':      './src/main-polymer.ts'
 
     },
 
@@ -161,6 +161,11 @@ module.exports = function (options) {
         filename: 'webpack-assets.json',
         prettyPrint: true
       }),
+
+      new webpack.PrefetchPlugin('/~/', 'lodash/_hashGet.js'),
+      new webpack.PrefetchPlugin('/~/', 'lodash/_baseKeysIn.js'),
+      new webpack.PrefetchPlugin('/~/', 'lodash-es/_root.js'),
+      new webpack.PrefetchPlugin('/~/', 'fbjs/lib/createArrayFromMixed.js'),
 
       /*
        * Plugin: ForkCheckerPlugin

@@ -38,7 +38,7 @@ const METADATA = webpackMerge(commonConfig({env: ENV}).metadata, {
  */
 module.exports = function (options) {
   return webpackMerge(commonConfig({env: ENV}), {
-
+    cache: true,
     /**
      * Developer tool to enhance debugging
      *
@@ -88,11 +88,6 @@ module.exports = function (options) {
       libraryTarget: 'var',
     },
 
-    loader: {
-      test: /.js$/,
-      loaders: [ 'happypack/loader' ]
-    },
-
     plugins: [
 
       /**
@@ -111,7 +106,7 @@ module.exports = function (options) {
         'process.env': {
           'ENV': JSON.stringify(METADATA.ENV),
           'NODE_ENV': JSON.stringify(METADATA.ENV),
-          'HMR': METADATA.HMR,
+          'HMR': METADATA.HMR
         }
       }),
 
@@ -133,14 +128,6 @@ module.exports = function (options) {
         options: {
 
         }
-      }),
-
-      new HappyPack({
-        // loaders is the only required parameter:
-        loaders: [ 'babel-loader' ],
-        threads: 4
-
-        // customize as needed, see Configuration below
       })
     ],
 
