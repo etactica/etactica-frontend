@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { AppState } from '../app.service';
-import {Auth} from "../auth.service";
+import {Auth} from "../auth/auth.service";
 
 @Component({
   selector: 'home',  // <home></home>

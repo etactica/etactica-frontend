@@ -19,6 +19,7 @@ import { HomeComponent } from './home';
 import { NoContentComponent } from './no-content';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloModule } from 'angular2-apollo';
+import {appRoutingProviders} from "./app.routes";
 
 const networkInterface = createNetworkInterface('https://s4ndp6dt4k.execute-api.eu-west-1.amazonaws.com/dev/graphql');
 
@@ -47,7 +48,8 @@ const client = new ApolloClient({
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
-  AUTH_PROVIDERS
+  AUTH_PROVIDERS,
+  appRoutingProviders,
 ];
 
 type StoreType = {
