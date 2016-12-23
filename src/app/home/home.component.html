@@ -1,29 +1,17 @@
-<div class="card-container">
-  <h1 x-large class="sample-content">Your Content Here</h1>
 
-  <div>
-    For material design components use the <a href="https://github.com/AngularClass/angular2-webpack-starter/tree/material2"><b>material2</b></a> branch
-  </div>
 
-  <hr>
 
   <div *ngIf="auth.authenticated()">
     <p>You are logged in {{auth.name()}} <img *ngIf="auth.authenticated()" src="{{auth.picture()}}" /></p>
     <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
   </div>
 
-  <div *ngIf="!auth.authenticated()">
-    <p>You are not logged in, please click 'Log in' button to login</p>
-    <button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button>
+  <div *ngIf="!auth.authenticated()" >
+    <paper-card heading="Yes we are on the moon!" style="width:100%;"
+      image="http://totaliceland.com/wp-content/uploads/2014/11/blue-lagoon-6.jpg" alt="image">
+      <h2 class="home-title">this is the blue lagoon we measure, totally strange</h2>
+    </paper-card>
+    <!--button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button-->
   </div>
 
-  <hr>
 
-  <div>
-    For hot module reloading run
-    <pre>npm run start:hmr</pre>
-    <vaadin-combo-box [label]="vaadinlabel" [(value)]="vaadinvalue" [items]="vaadintest"></vaadin-combo-box>
-  </div>
-
-  <prufa></prufa>
-</div>

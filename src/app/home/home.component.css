@@ -1,1 +1,10 @@
 /*styles for home content only*/
+.home-container {
+  margin: 0 auto;
+  }
+
+.home-title{
+  font-size: 32px;
+  font-weight: 300;
+  margin: 24px 12px;
+}

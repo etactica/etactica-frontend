@@ -23,6 +23,8 @@
   "dependencies": {
     "vaadin-charts": "^3.2.0",
     "paper-elements": "^1.0.7",
-    "vaadin-combo-box": "^1.1.5"
+    "vaadin-combo-box": "^1.1.5",
+    "app-layout": "PolymerElements/app-layout#^0.10.6",
+    "iron-icons": "PolymerElements/iron-icons#^1.2.0"
   }
 }

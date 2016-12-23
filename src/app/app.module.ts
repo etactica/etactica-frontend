@@ -16,9 +16,7 @@ import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
-import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
-import { XLarge } from './home/x-large';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { ApolloModule } from 'angular2-apollo';
 
@@ -65,11 +63,24 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AboutComponent,
     HomeComponent,
     NoContentComponent,
-    XLarge,
     PrufaComponent,
+    PolymerElement('app-header-layout'),
+    PolymerElement('app-header'),
+    PolymerElement('app-toolbar'),
+    PolymerElement('paper-toolbar'),
+    PolymerElement('paper-icon-button'),
+    PolymerElement('paper-menu'),
+    PolymerElement('paper-dialog'),
+    PolymerElement('paper-item'),
+    PolymerElement('paper-button'),
+    PolymerElement('paper-fab'),
+    PolymerElement('paper-input'),
+    PolymerElement('paper-card'),
+    PolymerElement('iron-image'),
+    PolymerElement('iron-iconset-svg'),
+    PolymerElement('iron-icon'),
     PolymerElement('vaadin-line-chart'),
     PolymerElement('vaadin-combo-box')
   ],
