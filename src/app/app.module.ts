@@ -26,6 +26,8 @@ const networkInterface = createNetworkInterface('https://s4ndp6dt4k.execute-api.
 //Polymer components
 import { PolymerElement } from '@vaadin/angular2-polymer';
 import {PrufaComponent} from './prufa/prufa.component';
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {LandingComponent} from "./landing/landing.component";
 
 // apply JWT to header
 networkInterface.use([{
@@ -68,6 +70,7 @@ type StoreType = {
     HomeComponent,
     NoContentComponent,
     PrufaComponent,
+    LandingComponent,
     PolymerElement('app-header-layout'),
     PolymerElement('app-header'),
     PolymerElement('app-toolbar'),
@@ -89,6 +92,7 @@ type StoreType = {
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
+    FlexLayoutModule.forRoot(),
     HttpModule,
     ApolloModule.withClient(client),
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })

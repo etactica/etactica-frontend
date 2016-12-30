@@ -1,7 +1,4 @@
-
-
-
-  <div *ngIf="auth.authenticated()">
+<!--div *ngIf="auth.authenticated()">
     <p>You are logged in {{auth.name()}} <img *ngIf="auth.authenticated()" src="{{auth.picture()}}" /></p>
     <button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.authenticated()">Log Out</button>
   </div>
@@ -11,7 +8,17 @@
       image="http://totaliceland.com/wp-content/uploads/2014/11/blue-lagoon-6.jpg" alt="image">
       <h2 class="home-title">this is the blue lagoon we measure, totally strange</h2>
     </paper-card>
-    <!--button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.authenticated()">Log In</button-->
+  </div-->
+
+<div class="profile-container" *ngIf="auth.authenticated()">
+  <h2>You are logged in</h2>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div class="profile-container" fxLayout="column">
+      <img class="profile-pic" [src]="auth.picture()" alt="" >
+    </div>
+    <div class="profile-container" fxLayout="column">
+      <p><strong>Name: </strong> {{auth.name()}}</p>
+      <p><strong>Email: </strong> {{auth.email()}}</p>
+    </div>
   </div>
-
-
+</div>

@@ -12,7 +12,16 @@ declare var Auth0: any;
 export class Auth {
   // Configure Auth0
   lock = new Auth0Lock(myConfig.clientID, myConfig.domain, {
-    icon: 'http://ssh.etactica.com/assets/img/etactica_logo_icon_new.svg',
+    //icon: 'http://ssh.etactica.com/assets/img/etactica_logo_icon_new.svg',
+    theme: {
+      logo: 'https://ssh.etactica.com/assets/img/etactica_logo_icon_new.svg',
+      primaryColor: 'rgb(37, 123, 160)'
+    },
+    languageDictionary: {
+      title: "eTactica"
+    },
+    socialButtonStyle: 'small',
+    autoclose: true,
     rememberLastLogin: false,
     auth: {
       redirect: false,
@@ -33,7 +42,7 @@ export class Auth {
       localStorage.setItem('claims', JSON.stringify(authResult.idTokenPayload));
       console.log('email: ' + authResult.idTokenPayload.email);
       console.log('name: ' + authResult.idTokenPayload.name);
-      this.router.navigate([''], {});
+      this.router.navigate(['/home'], {});
     });
 
     this.lock.on('authorization_error', (err) => {
@@ -79,10 +88,15 @@ export class Auth {
     // Remove token from localStorage
     localStorage.removeItem('id_token');
     localStorage.removeItem('claims');
+    this.router.navigate(['/'], {});
   };
 
   public name() {
     return JSON.parse(localStorage.getItem('claims')).name;
+  }
+
+  public email() {
+    return JSON.parse(localStorage.getItem('claims')).email;
   }
 
   public picture() {

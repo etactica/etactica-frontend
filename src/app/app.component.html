@@ -1,63 +1,32 @@
+<app-header-layout >
 
-
-<app-header-layout>
-
-  <app-header reveals effects="waterfall">
-
-    <app-toolbar class="toolbar">
-      <div class="tabs">
-        <img src="http://www.etactica.com/wp-content/uploads/2016/10/etactica@2x.png"  width="135" alt="">
-
-        <a (click)="auth.login()">Login</a>
-      </div>
-    </app-toolbar>
-
+  <app-header  reveals effects="waterfall">
+    <paper-toolbar class="toolbar">
+      <img src="http://www.etactica.com/wp-content/uploads/2016/10/etactica@2x.png"  width="135" alt="">
+      <span class="title"></span>
+      <img class="end profile-img" *ngIf="auth.authenticated()" src="{{auth.picture()}}" />
+      <a class="end" *ngIf="auth.authenticated()" (click)="auth.logout()">Log Out</a>
+      <a class="end" *ngIf="!auth.authenticated()" (click)="auth.login()">Log In</a>
+    </paper-toolbar>
   </app-header>
 
-  <header>
+  <header *ngIf="!auth.authenticated()" fxLayout="column" fxLayoutAlign="center center">
     <h2>Oh Hi and welcome to eTactica</h2>
     <p>as you can see eTactica is very powerful</p>
-    <paper-button raised style="margin-top:10px; background: #E9595F;" (click)="auth.login()" *ngIf="!auth.authenticated()">
-      Sign up
+    <paper-button raised (click)="auth.login()" >
+      Get started
     </paper-button>
   </header>
 
-
-  <section id="weHave">
-    <div class="container">
-      <paper-card style="width:40%; margin: 4%; padding: 2%;" image="http://www.etactica.com/wp-content/uploads/2016/08/gateway-eg-hover.png" alt="image">
-        <h2 class="home-title">we have here EG</h2>
-      </paper-card>
-      <paper-card style="width:40%; margin: 4%; padding: 2%" image="http://www.etactica.com/wp-content/uploads/2016/08/img-product-hover.png" alt="image">
-        <h2 class="home-title">we have the EM</h2>
-      </paper-card>
-      <h2 style="font-size: 32px; font-weight: 300;">everything in the same eTactica</h2>
-    </div>
-  </section>
-
   <section id="home">
-    <div class="container">
-      <router-outlet></router-outlet>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <router-outlet ></router-outlet>
     </div>
   </section>
 
-  <section id="herbalife">
+  <footer>
     <div class="container">
-      <iframe width="100%" height="600" src="https://www.youtube.com/v/tYk-X1ttkbI?autoplay=1">
-      </iframe>
-    </div>
-  </section>
-
-
-  <footer style="position: fixed; bottom:0; right: 0; left: 0; width: 100%; background: #EEEEEE; text-align: center">
-    <div style="margin: 10px;">
       © eTactica 3 project
     </div>
   </footer>
 </app-header-layout>
-
-
-
-<!--pre class="app-state">this.appState.state = {{ appState.state | json }}</pre-->
-
-

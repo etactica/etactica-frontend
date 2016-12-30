@@ -1,10 +1,17 @@
 /*styles for home content only*/
-.home-container {
-  margin: 0 auto;
-  }
+.profile-container{
+  margin: 20px;
+}
 
-.home-title{
-  font-size: 32px;
+
+.profile-pic {
+  border-radius: 50%;
+}
+
+h2 {
+  height: 60px;
+  line-height: 60px;
+  font-size: 56px;
   font-weight: 300;
-  margin: 24px 12px;
+  margin: 0;
 }

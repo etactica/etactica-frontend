@@ -1,79 +1,27 @@
-a {
-  text-decoration: none;
-  font-size: inherit;
-  color: inherit;
-}
+
 .toolbar {
-  -ms-flex-direction: row;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
+  color: #222;
   background-color: rgba(255, 255, 255, 0.95);
 }
-.tabs {
-  height: 100%;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -ms-flex-direction: row;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  width: 100%;
-  /*@apply(--layout-horizontal);*/
-}
-.tabs > a {
-  @apply(--layout-vertical);
-  @apply(--layout-center-center);
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -ms-flex-direction: column;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-align: end;
-  -webkit-align-items: flex-end;
-  align-items: flex-end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
-  margin: 20px 10px 20px auto;
-  border-bottom: 1px solid #222;
-}
-.tabs > img {
-  @apply(--layout-vertical);
-  @apply(--layout-center-center);
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -ms-flex-direction: column;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-align: start;
-  -webkit-align-items: flex-start;
-  align-items: flex-start;
-  -ms-flex-pack: start;
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-  padding: 10px;
 
+.toolbar > a {
+  border-bottom: 1px solid #222;
+  cursor: pointer;
+  font-size: 20px;
 }
+
+.profile-img {
+  width: 38px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+app-header{
+  left: 0 !important;
+  right: 0 !important;
+}
+
 header {
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -ms-flex-direction: column;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  @apply(--layout-vertical);
-  @apply(--layout-center-center);
   height: calc(100vh - 350px);
   padding: 0 16px;
   background-image: url('http://www.etactica.com/wp-content/uploads/2016/08/hero-img-min.png');
@@ -82,7 +30,9 @@ header {
   color: white;
   text-align: center;
 }
-header > h2 {
+h2 {
+  height: 60px;
+  line-height: 60px;
   font-size: 56px;
   font-weight: 300;
   margin: 0;
@@ -93,29 +43,33 @@ header > p {
 section {
   padding: 88px 16px;
 }
-.container {
-  @apply(--layout-horizontal);
-  max-width: 800px;
-  margin: 0 auto;
+
+footer {
+  position: fixed;
+  bottom:0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  background: #EEEEEE;
+  text-align: center
 }
-.container > * {
-  @apply(--layout-flex);
+
+footer > div {
+  margin: 10px;
 }
-.container img {
-  max-width: 100%;
-  max-height: 100%;
+
+paper-card{
+  margin: 20px;
+  padding: 20px;
+  color: #454152;
+  font-size: 22px;
+  background: #edeff4;
+  /*font-weight:300;*/
 }
-.container h3 {
-  font-size: 32px;
-  font-weight: 300;
-  margin: 24px 0;
+
+paper-button {
+  margin-top:10px;
+  background: #E9595F;
 }
-.container p {
-  line-height: 1.5;
-}
-@media (max-width: 600px) {
-  .container {
-    @apply(--layout-vertical);
-  }
-}
+
 
