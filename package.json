@@ -120,6 +120,8 @@
     "karma-remap-coverage": "^0.1.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "1.8.0",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
     "parse5": "^2.2.2",
     "polymer-loader": "^1.0.0",
     "protractor": "^4.0.10",

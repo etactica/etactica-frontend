@@ -8,7 +8,9 @@ import {Auth} from "../auth/auth.service";
   providers: [
     Auth
   ],
-  styleUrls: [ './home.component.css' ],
+  styles: [
+    require('./home.less').toString()
+  ],
   templateUrl: './home.component.html'
 })
 export class HomeComponent {

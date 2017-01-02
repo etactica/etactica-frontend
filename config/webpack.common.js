@@ -19,7 +19,6 @@ const HtmlElementsPlugin = require('./html-elements-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-
 /*
  * Webpack Constants
  */
@@ -74,7 +73,7 @@ module.exports = function (options) {
        *
        * See: http://webpack.github.io/docs/configuration.html#resolve-extensions
        */
-      extensions: ['.ts', '.js', '.json'],
+      extensions: ['.ts', '.js', '.less', '.json'],
 
       // An array of directory names to be resolved to the current directory
       modules: [helpers.root('src'), helpers.root('node_modules')],
@@ -106,6 +105,14 @@ module.exports = function (options) {
             'angular-router-loader'
           ],
           exclude: [/\.(spec|e2e)\.ts$/]
+        },
+        {
+          test: /\.less$/,
+          use: [
+            'style-loader',
+            { loader: 'css-loader', options: { importLoaders: 1 } },
+            { loader: 'less-loader', options: { strictMath: true, noIeCompat: true } }
+          ]
         },
 
         /*
@@ -297,6 +304,7 @@ module.exports = function (options) {
         /facade(\\|\/)math/,
         helpers.root('node_modules/@angular/core/src/facade/math.js')
       ),
+
     ],
 
     /*
